@@ -1,0 +1,8 @@
+/* Category color classes */
+.event-block.work { background-color: #bfdbfe; }
+.event-block.education { background-color: #fde68a; }
+.event-block.personal { background-color: #fecaca; }
+
+.month-view .event.work { background-color: #bfdbfe; }
+.month-view .event.education { background-color: #fde68a; }
+.month-view .event.personal { background-color: #fecaca; }
