@@ -1,79 +1,115 @@
+/* Overall layout */
 .calendar-view {
   display: flex;
   flex-direction: column;
   height: 100%;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
-
-.calendar-header {
-  display: flex;
-  height: 40px;
-  background: #f1f1f1;
-  border-bottom: 1px solid #ccc;
-}
-
-.time-column-header {
-  width: 60px;
-}
-
-.day-header {
-  flex: 1;
-  text-align: center;
-  font-weight: bold;
-  line-height: 40px;
-  border-left: 1px solid #ccc;
-}
-
 .calendar-body {
   display: flex;
   flex: 1;
-  overflow-y: auto;
   position: relative;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
+/* Headers */
+.calendar-header {
+  display: flex;
+  height: 40px;
+  background: #f7f8fa;
+  border-bottom: 1px solid #ddd;
+}
+.time-column-header {
+  width: 60px;
+}
+.day-header {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  line-height: 40px;
+  border-left: 1px solid #ddd;
+}
+
+/* Time column */
 .time-column {
   width: 60px;
   display: flex;
   flex-direction: column;
 }
-
 .time-slot {
   height: 50px;
-  padding-right: 5px;
   text-align: right;
+  padding-right: 6px;
   font-size: 12px;
   border-bottom: 1px solid #eee;
 }
 
+/* Day columns */
 .day-column {
   flex: 1;
   position: relative;
   border-left: 1px solid #eee;
 }
-
 .hour-cell {
   height: 50px;
   border-bottom: 1px solid #eee;
 }
 
+/* Event block styling */
 .event-block {
   position: absolute;
-  padding: 5px;
-  font-size: 12px;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  font-size: 0.85rem;
   border-radius: 4px;
-  color: #000;
+  border: 1px solid rgba(0,0,0,0.1);
   overflow: hidden;
+}
+.event-time {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-top: 2px;
 }
 
 /* Pastel category colors */
 .event-block.work {
-  background-color: #a6c8ff; /* light blue */
+  background-color: #a6cff5;
 }
-
 .event-block.education {
-  background-color: #ffe6a7; /* pastel yellow */
+  background-color: #f6e7a1;
+}
+.event-block.personal {
+  background-color: #f9b7b7;
 }
 
-.event-block.personal {
-  background-color: #fcb7af; /* pastel pink */
+/* Conflict badge */
+.conflict-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: #f59e0b;
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+.event-block:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Scroll behavior */
+.calendar-body {
+  scrollbar-width: thin;
+}
+.calendar-body::-webkit-scrollbar {
+  width: 6px;
+}
+.calendar-body::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 3px;
 }
